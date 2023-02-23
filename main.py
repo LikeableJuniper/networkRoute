@@ -1,10 +1,8 @@
-import json
 import random
-import math
 
 
-nodes = 100
-connectionProbability = 10/(nodes+10)
+nodes = 10
+connectionProbability = 1/nodes
 
 
 class Probe:
