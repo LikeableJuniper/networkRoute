@@ -21,8 +21,9 @@ def generateStructure(nodes):
             if i == a:
                 continue
             if random.random() <= connectionProbability and a not in structure[i]:
-                structure[i].append(a)
-                structure[a].append(i)
+                distance = random.randint(0, 100)
+                structure[i].append([a, distance])
+                structure[a].append([i, distance])
     return structure
 
 
@@ -40,7 +41,6 @@ while True:
         if probe.location == goal:
             finished = True
             successfulProbes.append(Probe(probe.location, probe.visited+[goal]))
-            continue
         for connection in structure[probe.location]:
             if connection not in visitedNodes:
                 visitedNodes.append(connection)
