@@ -41,7 +41,6 @@ while True:
         if probe.location == goal:
             finished = True
             successfulProbes.append(Probe(probe.location, probe.visited+[goal]))
-            continue
         for connection in structure[probe.location]:
             if connection not in visitedNodes:
                 visitedNodes.append(connection)
