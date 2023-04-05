@@ -21,7 +21,7 @@ def generateStructure(nodes):
             if i == a:
                 continue
             if random.random() <= connectionProbability and a not in structure[i]:
-                distance = random.randint(0, 100)
+                distance = random.randint(1, 100)
                 structure[i].append([a, distance])
                 structure[a].append([i, distance])
     return structure
