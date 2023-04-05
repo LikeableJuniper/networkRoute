@@ -1,7 +1,7 @@
 import random
 
 
-nodes = 10
+nodes = 1000
 connectionProbability = 1/nodes
 
 

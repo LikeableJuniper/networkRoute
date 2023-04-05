@@ -1,7 +1,7 @@
 import random
 
 
-nodes = 10
+nodes = 5
 connectionProbability = 1/nodes
 
 
@@ -15,7 +15,7 @@ class Probe:
 
 
 def generateStructure(nodes):
-    structure: list[list] = [[] for _ in range(nodes)]
+    structure: list[list[int]] = [[] for _ in range(nodes)]
     for i in range(nodes):
         for a in range(nodes):
             if i == a:
@@ -28,6 +28,7 @@ def generateStructure(nodes):
 
 
 structure = generateStructure(nodes)
+print(structure)
 probes = [Probe(0, [])]
 newProbes = []
 successfulProbes = []
@@ -41,7 +42,8 @@ while True:
         if probe.location == goal:
             finished = True
             successfulProbes.append(Probe(probe.location, probe.visited+[goal]))
-        for connection in structure[probe.location]:
+        for connection, distance in structure[probe.location]:
+            print(connection, distance)
             if connection not in visitedNodes:
                 visitedNodes.append(connection)
                 newProbes.append(Probe(connection, probe.visited+[probe.location]))
